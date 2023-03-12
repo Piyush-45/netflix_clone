@@ -10,7 +10,7 @@ const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const{user, signUp} = UserAuth();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
 
   const handleSubmit = async (e) => {

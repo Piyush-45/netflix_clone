@@ -1,6 +1,4 @@
-
 // import { app } from '../context/firebaseconfig'
-
 
 import { useEffect, useState } from "react";
 
@@ -9,31 +7,23 @@ import { Link, useNavigate } from "react-router-dom";
 import { UserAuth } from "../context/AuthContext";
 
 const Login = () => {
-
-
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const[error, setError] = useState("");
-  const{user, logIn} = UserAuth();
+  const [error, setError] = useState("");
+  const { user, logIn } = UserAuth();
   const navigate = useNavigate();
 
-
-const handleSubmit = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setError('')
+    setError("");
     try {
-      await logIn(email, password)
-      navigate('/')
+      await logIn(email, password);
+      navigate("/");
     } catch (error) {
       console.log(error);
-      setError(error.message)
+      setError("Invalid email or password");
     }
   };
- 
-
-
-
 
   return (
     <div className="w-full h-screen">
@@ -47,7 +37,7 @@ const handleSubmit = async (e) => {
         <div className="max-w-[450px] h-[600px] mx-auto bg-black/75">
           <div className="max-w-[320px] mx-auto py-16">
             <h1 className="text-3xl font-bold ">Sign In</h1>
-            <form  onSubmit={handleSubmit} className="w-full flex flex-col py-4">
+            <form onSubmit={handleSubmit} className="w-full flex flex-col py-4">
               <input
                 name="email"
                 placeholder="email"
@@ -64,10 +54,11 @@ const handleSubmit = async (e) => {
                 // onClick={handleSignIn}
                 className="bg-red-600 py-3 my-6 rounded font-bold"
               >
-               {/* {isSignedIn ? "Logout" :  "Sign In"} */}
-               Sign In 
+                {/* {isSignedIn ? "Logout" :  "Sign In"} */}
+                Sign In
               </button>
-
+              {/* code for error message */}
+              {error && <p className="text-red-600">{error}</p>}
               <div className="flex items-center justify-between text-sm text-gray-600">
                 <p>
                   <input type="checkbox" className="mr-2 " />
@@ -75,15 +66,19 @@ const handleSubmit = async (e) => {
                 </p>
                 <p>Need Help</p>
               </div>
-              <p >
-                <span className="py-4 text-gray-600 ">New to Netflix ?</span> <span className="cursor-pointer ml-2 text-white"> <Link to='/signup'>Sign Up</Link></span>
+              <p>
+                <span className="py-4 text-gray-600 ">New to Netflix ?</span>{" "}
+                <span className="cursor-pointer ml-2 text-white">
+                  {" "}
+                  <Link to="/signup">Sign Up</Link>
+                </span>
               </p>
             </form>
           </div>
         </div>
       </div>
     </div>
-    )
-}
+  );
+};
 
-export default Login
+export default Login;

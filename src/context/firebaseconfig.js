@@ -4,7 +4,8 @@ import { initializeApp } from "firebase/app";
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 import {getFirestore} from "firebase/firestore"
-// Your web app's Firebase configuration
+
+
 const firebaseConfig = {
   apiKey: "AIzaSyCxoMX_roTLwDNJNu_8OQ5XEqvKO_3EcG8",
   authDomain: "netfliclone-94865.firebaseapp.com",

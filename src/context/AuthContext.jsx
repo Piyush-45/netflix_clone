@@ -1,15 +1,17 @@
 import React from 'react'
 
 import { createContext, useContext, useEffect, useState } from 'react'
-
+ 
 import { app , db} from "./firebaseconfig";
 import { getAuth } from 'firebase/auth';
-import { addDoc, doc, collection } from 'firebase/firestore';
+import { setDoc, doc, collection } from 'firebase/firestore';
 
 import {  createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "firebase/auth";
-
+// import {doc, setDoc} from "firebase/firestore"
 
 // !creating context 
+
+
 const AuthContext = createContext();
 
 export const AuthContextProvider  = ({children}) => {
@@ -22,14 +24,16 @@ export const AuthContextProvider  = ({children}) => {
 
     function signUp(email, password) {
             createUserWithEmailAndPassword(auth,email, password);
-            addDoc(doc(db, 'users', email),{
+            setDoc(doc(db, 'users', email),{
                 savedShows : []
             }
-        )
+        );
+        
     }
 
     function logIn(email, password){
         return signInWithEmailAndPassword(auth,email, password ) 
+        
     }
 
     function logOut(){
@@ -39,11 +43,12 @@ export const AuthContextProvider  = ({children}) => {
     useEffect(()=>{
         const unsubscribe = onAuthStateChanged(auth, (currentUser)=>{
             setUser(currentUser)
+            // alert("logged out successfully")
         })
         return ()=>{
             unsubscribe()
         }
-    });
+    }, []);
 
   return (
     <AuthContext.Provider value={{signUp, logIn, logOut, user}}>
