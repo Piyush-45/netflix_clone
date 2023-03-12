@@ -9,15 +9,16 @@ const Home = () => {
       <Main />
       <Rows rowID="1" title="Upcoming" fetchurl={requests.requestUpcoming} />
       
-      <Rows rowID="3" title="Popular" fetchurl={requests.requestPopular} />
-      <Rows rowID="4" title="Trending" fetchurl={requests.requestTrending} />
-      <Rows rowID="5" title="Top Rated" fetchurl={requests.requestTopRated} />
-      <Rows rowID="6" title="Horror" fetchurl={requests.requestHorror} />
+      <Rows rowID="2" title="Popular" fetchurl={requests.requestPopular} />
+      <Rows rowID="3" title="Trending" fetchurl={requests.requestTrending} />
       <Rows
-        rowID="7"
+        rowID="4"
         title="Recommendations"
         fetchurl={requests.requestRecommendations}
       />
+      <Rows rowID="5" title="Top Rated" fetchurl={requests.requestTopRated} />
+      <Rows rowID="6" title="Horror" fetchurl={requests.requestHorror} />
+     
     </div>
   );
 };

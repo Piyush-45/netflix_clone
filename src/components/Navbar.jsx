@@ -32,8 +32,8 @@ const Navbar = () => {
         </h1>
       </Link>
       {user?.email ? (
-        <div className="flex gap-4 items-center">
-         <Search/>
+        <div className="flex items-center">
+         {/* <Search/> */}
          
           <Link to="/account">
             <button className="text-white pr-4"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRel4c26sEwdj81loUzjfgikPTZXdlfHh3MnJAcKP2vkA&s" alt=""className="w-8" /></button>
