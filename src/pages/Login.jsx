@@ -59,7 +59,7 @@ const Login = () => {
               </button>
               {/* code for error message */}
               {error && <p className="text-red-600">{error}</p>}
-              <div className="flex items-center justify-between text-sm text-gray-600">
+              <div className="flex items-center justify-between text-sm text-white-">
                 <p>
                   <input type="checkbox" className="mr-2 " />
                   Remember me
@@ -67,9 +67,8 @@ const Login = () => {
                 <p>Need Help</p>
               </div>
               <p>
-                <span className="py-4 text-gray-600 ">New to Netflix ?</span>{" "}
+                <span className="py-4 text-gray-600 ">New to Netflix ?</span>
                 <span className="cursor-pointer ml-2 text-white">
-                  {" "}
                   <Link to="/signup">Sign Up</Link>
                 </span>
               </p>
